@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../widgets/filter_buttons.dart';
 import '../widgets/gasto_form.dart';
 import '../widgets/gasto_list.dart';
 import '../widgets/totales_widget.dart';
+import '../viewmodels/auth_viewmodel.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,6 +19,38 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: const Text('Mis Gastos Diarios'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Cerrar Sesión'),
+                  content: const Text(
+                    '¿Estás seguro que deseas cerrar sesión?',
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('Cancelar'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        context.read<AuthViewModel>().signOut();
+                      },
+                      child: const Text(
+                        'Cerrar Sesión',
+                        style: TextStyle(color: Color(0xFFFF1744)),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Container(
         decoration: const BoxDecoration(

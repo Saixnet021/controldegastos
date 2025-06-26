@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'screens/home_screen.dart';
 import 'viewmodels/gasto_viewmodel.dart';
+import 'viewmodels/auth_viewmodel.dart';
+import 'widgets/auth_wrapper.dart';
 import 'config/firebase_config.dart';
 
 void main() async {
@@ -28,8 +30,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => GastoViewModel(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthViewModel()),
+        ChangeNotifierProvider(create: (_) => GastoViewModel()),
+      ],
       child: MaterialApp(
         title: 'Gastos Web',
         debugShowCheckedModeBanner: false,
@@ -95,7 +100,7 @@ class MyApp extends StatelessWidget {
             hintStyle: const TextStyle(color: Colors.grey),
           ),
         ),
-        home: const HomeScreen(),
+        home: const AuthWrapper(),
       ),
     );
   }
