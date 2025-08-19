@@ -10,15 +10,14 @@ import 'config/firebase_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(
-    options: FirebaseOptions(
-      apiKey: FirebaseConfig.apiKey,
-      authDomain: FirebaseConfig.authDomain,
-      projectId: FirebaseConfig.projectId,
-      storageBucket: FirebaseConfig.storageBucket,
-      messagingSenderId: FirebaseConfig.messagingSenderId,
-      appId: FirebaseConfig.appId,
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyCiWHH8MRFxV5rNJH6HRzQe7OlfmgD_Hhg",
+      authDomain: "gastos-ba07f.firebaseapp.com",
+      projectId: "gastos-ba07f",
+      storageBucket: "gastos-ba07f.firebasestorage.app",
+      messagingSenderId: "827631017381",
+      appId: "1:827631017381:web:37f72ec9b3498542661c4c",
     ),
   );
 
