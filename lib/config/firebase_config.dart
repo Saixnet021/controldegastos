@@ -1,44 +1,8 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter/foundation.dart';
-
 class FirebaseConfig {
-  static String get apiKey =>
-      const String.fromEnvironment('FIREBASE_API_KEY', defaultValue: '') != ''
-      ? const String.fromEnvironment('FIREBASE_API_KEY')
-      : dotenv.env['FIREBASE_API_KEY'] ?? '';
-
-  static String get authDomain =>
-      const String.fromEnvironment('FIREBASE_AUTH_DOMAIN', defaultValue: '') !=
-          ''
-      ? const String.fromEnvironment('FIREBASE_AUTH_DOMAIN')
-      : dotenv.env['FIREBASE_AUTH_DOMAIN'] ?? '';
-
-  static String get projectId =>
-      const String.fromEnvironment('FIREBASE_PROJECT_ID', defaultValue: '') !=
-          ''
-      ? const String.fromEnvironment('FIREBASE_PROJECT_ID')
-      : dotenv.env['FIREBASE_PROJECT_ID'] ?? '';
-
-  static String get storageBucket =>
-      const String.fromEnvironment(
-            'FIREBASE_STORAGE_BUCKET',
-            defaultValue: '',
-          ) !=
-          ''
-      ? const String.fromEnvironment('FIREBASE_STORAGE_BUCKET')
-      : dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '';
-
-  static String get messagingSenderId =>
-      const String.fromEnvironment(
-            'FIREBASE_MESSAGING_SENDER_ID',
-            defaultValue: '',
-          ) !=
-          ''
-      ? const String.fromEnvironment('FIREBASE_MESSAGING_SENDER_ID')
-      : dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '';
-
-  static String get appId =>
-      const String.fromEnvironment('FIREBASE_APP_ID', defaultValue: '') != ''
-      ? const String.fromEnvironment('FIREBASE_APP_ID')
-      : dotenv.env['FIREBASE_APP_ID'] ?? '';
+  static const String apiKey = "AIzaSyCiWHH8MRFxV5rNJH6HRzQe7OlfmgD_Hhg";
+  static const String authDomain = "gastos-ba07f.firebaseapp.com";
+  static const String projectId = "gastos-ba07f";
+  static const String storageBucket = "gastos-ba07f.firebasestorage.app";
+  static const String messagingSenderId = "827631017381";
+  static const String appId = "1:827631017381:web:37f72ec9b3498542661c4c";
 }
